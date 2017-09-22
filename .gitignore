@@ -1,0 +1,12 @@
+.gradle
+local.properties
+.idea/*
+.DS_Store
+build/*
+captures
+app/build/*
+*.apk
+app/libs/Native_Libs2.jar
+.settings/*
+target/*
+mybatis.log
