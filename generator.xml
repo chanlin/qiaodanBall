@@ -32,9 +32,8 @@
 		<table tableName="u_vip" domainObjectName="u_vip" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="s_move" domainObjectName="s_move" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
 		<table tableName="sys_media" domainObjectName="sys_media" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<!--
-		<table tableName="log_cs_req" domainObjectName="log_cs_req" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		<table tableName="log_cs_res" domainObjectName="log_cs_res" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
-		-->
+		
+		<table tableName="s_train_save" domainObjectName="s_train_save" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		
 			</context>
 </generatorConfiguration>

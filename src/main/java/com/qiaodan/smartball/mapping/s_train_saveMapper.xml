@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiaodan.smartball.dao.s_train_saveMapper" >
+  <resultMap id="BaseResultMap" type="com.qiaodan.smartball.model.s_train_save" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="vip_id" property="vipId" jdbcType="VARCHAR" />
+    <result column="move_id" property="moveId" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="terminal" property="terminal" jdbcType="VARCHAR" />
+    <result column="platform" property="platform" jdbcType="CHAR" />
+    <result column="source" property="source" jdbcType="CHAR" />
+    <result column="say" property="say" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, del_flag, remarks, vip_id, move_id, type, terminal, platform, source, 
+    say, img, url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from s_train_save
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from s_train_save
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qiaodan.smartball.model.s_train_save" >
+    insert into s_train_save (id, create_time, del_flag, 
+      remarks, vip_id, move_id, 
+      type, terminal, platform, 
+      source, say, img, url
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{vipId,jdbcType=VARCHAR}, #{moveId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=CHAR}, #{terminal,jdbcType=VARCHAR}, #{platform,jdbcType=CHAR}, 
+      #{source,jdbcType=CHAR}, #{say,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiaodan.smartball.model.s_train_save" >
+    insert into s_train_save
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="vipId != null" >
+        vip_id,
+      </if>
+      <if test="moveId != null" >
+        move_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="terminal != null" >
+        terminal,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="say != null" >
+        say,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="vipId != null" >
+        #{vipId,jdbcType=VARCHAR},
+      </if>
+      <if test="moveId != null" >
+        #{moveId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="terminal != null" >
+        #{terminal,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=CHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=CHAR},
+      </if>
+      <if test="say != null" >
+        #{say,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiaodan.smartball.model.s_train_save" >
+    update s_train_save
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="vipId != null" >
+        vip_id = #{vipId,jdbcType=VARCHAR},
+      </if>
+      <if test="moveId != null" >
+        move_id = #{moveId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="terminal != null" >
+        terminal = #{terminal,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=CHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=CHAR},
+      </if>
+      <if test="say != null" >
+        say = #{say,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiaodan.smartball.model.s_train_save" >
+    update s_train_save
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      vip_id = #{vipId,jdbcType=VARCHAR},
+      move_id = #{moveId,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      terminal = #{terminal,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=CHAR},
+      source = #{source,jdbcType=CHAR},
+      say = #{say,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
