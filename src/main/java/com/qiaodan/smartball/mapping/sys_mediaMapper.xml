@@ -172,4 +172,14 @@
       time = #{time,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  <!-- 搜索mobile 下的 用户分享的 图片 -->
+  <select id="getMediaListByMobile" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select m.* from sys_media m,u_vip u,s_train_save s 
+  		where  u.mobile = #{mobile,jdbcType=VARCHAR} 
+  		and u.id = s.vip_id 
+  		and s.img = m.id  
+  		ORDER BY m.create_time DESC;
+  
+  </select>
 </mapper>

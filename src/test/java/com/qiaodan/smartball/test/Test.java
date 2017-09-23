@@ -13,8 +13,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.alibaba.fastjson.JSON;
 import com.qiaodan.smartball.model.s_moveWithBLOBs;
+import com.qiaodan.smartball.model.sys_media;
 import com.qiaodan.smartball.pullUtils.PullHex;
 import com.qiaodan.smartball.pullUtils.Utils;
+import com.qiaodan.smartball.service.MediaServiceI;
 import com.qiaodan.smartball.service.MoveServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,7 +25,7 @@ public class Test {
 	private static final Logger logger = Logger.getLogger(Test.class);
 	
 	private MoveServiceI moveService;
-	
+	private MediaServiceI mediaService;
 		
 		
 		
@@ -35,7 +37,16 @@ public class Test {
 		public void setMoveService(MoveServiceI moveService) {
 			this.moveService = moveService;
 		}
+		
+		
 
+		public MediaServiceI getMediaService() {
+			return mediaService;
+		}
+		@Autowired
+		public void setMediaService(MediaServiceI mediaService) {
+			this.mediaService = mediaService;
+		}
 		/*@org.junit.Test
 		public void login() {
 			User u = userService.login();
@@ -102,6 +113,29 @@ public class Test {
 				}
 			}
 		}
-		
-		
+		@org.junit.Test
+		public void getMediaListByMobile(){
+			System.err.println("---------------getMediaListByMobile--start--------------");
+			String mobile = "13723707851";
+			List<sys_media> medias = mediaService.getMediaListByMobile(mobile);
+			if (! (medias == null || medias.size() <= 0)) {
+				for (sys_media media : medias) {
+					String id = media.getId();
+				    String createBy = media.getCreateBy();
+				    Date createTime = media.getCreateTime();
+				    String type = media.getType();
+				    String folder = media.getFolder();
+				    String name = media.getName();
+				    String suffix = media.getSuffix();
+				    String source = media.getSource();
+				    String path = media.getPath();
+				    String url = media.getUrl();
+				    String length = media.getLength();
+				    String time = media.getTime();
+				    
+				    
+				}
+			}
+			System.err.println("---------------getMediaListByMobile--end--------------");
+		}
 }
