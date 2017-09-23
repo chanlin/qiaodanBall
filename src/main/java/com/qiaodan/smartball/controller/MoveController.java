@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qiaodan.smartball.common.Result;
 import com.qiaodan.smartball.common.Status;
@@ -31,6 +32,7 @@ public class MoveController {
 	
 	
 	@RequestMapping("/getMoveForUserMobile")
+	@ResponseBody
 	public Result getMoveForUserMobile(HttpServletRequest req){
 		String mobile = req.getParameter("mobile");
 		List<s_moveWithBLOBs> moves = new ArrayList<s_moveWithBLOBs>();
