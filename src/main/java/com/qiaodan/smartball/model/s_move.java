@@ -3,93 +3,93 @@ package com.qiaodan.smartball.model;
 import java.util.Date;
 
 public class s_move {
-    private String id;
+    protected String id;
 
-    private Date createTime;
+    protected Date createTime;
 
-    private String delFlag;
+    protected String delFlag;
 
-    private String vipId;
+    protected String vipId;
 
-    private String sn;
+    protected String sn;
 
-    private String footer;
+    protected String footer;
 
-    private String longitude;
+    protected String longitude;
 
-    private String latitude;
+    protected String latitude;
 
-    private String address;
+    protected String address;
 
-    private Date beginTime;
+    protected Date beginTime;
 
-    private String spend;
+    protected String spend;
 
-    private String picture;
+    protected String picture;
 
-    private Date endTime;
+    protected Date endTime;
 
-    private String totalDist;
+    protected String totalDist;
 
-    private String totalStep;
+    protected String totalStep;
 
-    private String totalHorDist;
+    protected String totalHorDist;
 
-    private String totalVerDist;
+    protected String totalVerDist;
 
-    private String totalTime;
+    protected String totalTime;
 
-    private String totalActiveTime;
+    protected String totalActiveTime;
 
-    private String activeRate;
+    protected String activeRate;
 
-    private String avgSpeed;
+    protected String avgSpeed;
 
-    private String maxSpeed;
+    protected String maxSpeed;
 
-    private String spurtCount;
+    protected String spurtCount;
 
-    private String breakinCount;
+    protected String breakinCount;
 
-    private String breakinAvgTime;
+    protected String breakinAvgTime;
 
-    private String verJumpCount;
+    protected String verJumpCount;
 
-    private String verJumpAvgHigh;
+    protected String verJumpAvgHigh;
 
-    private String verJumpMaxHigh;
+    protected String verJumpMaxHigh;
 
-    private String avgHoverTime;
+    protected String avgHoverTime;
 
-    private String avgTouchAngle;
+    protected String avgTouchAngle;
 
-    private String touchType;
+    protected String touchType;
 
-    private String perfRank;
+    protected String perfRank;
 
-    private String runRank;
+    protected String runRank;
 
-    private String breakRank;
+    protected String breakRank;
 
-    private String bounceRank;
+    protected String bounceRank;
 
-    private String avgShotDist;
+    protected String avgShotDist;
 
-    private String maxShotDist;
+    protected String maxShotDist;
 
-    private String maxWallup;
+    protected String maxWallup;
 
-    private String avgWallup;
+    protected String avgWallup;
 
-    private String handle;
+    protected String handle;
 
-    private String calorie;
+    protected String calorie;
 
-    private String type;
+    protected String type;
 
-    private String header;
+    protected String header;
 
-    private String fieldType;
+    protected String fieldType;
 
     public String getId() {
         return id;

@@ -17,7 +17,17 @@ public class Utils {
 	private static String dateStr = "yyyy/MM/dd HH:mm";
 	static SimpleDateFormat simFor = new SimpleDateFormat(dateStr);
 	public static String simpDate(Date date){
+		if (date == null || "".equals(date)) {
+			return "";
+		}
 		return simFor.format(date);
+	}
+	
+	public static boolean isEmpty (String str){
+		if (str == null || "".equals(str)) {
+			return true;
+		}
+		return false;
 	}
 	/**
      * 把毫秒转化成日期

@@ -1,9 +1,9 @@
 package com.qiaodan.smartball.model;
 
 public class s_moveWithBLOBs extends s_move {
-    private String verJumpPoint;
+    protected String verJumpPoint;
 
-    private String trail;
+    protected String trail;
 
     public String getVerJumpPoint() {
         return verJumpPoint;
