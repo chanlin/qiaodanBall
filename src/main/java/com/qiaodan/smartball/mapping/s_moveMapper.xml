@@ -634,7 +634,7 @@
   	select 
   	s.*
   	from s_move s INNER JOIN u_vip u on u.id = s.vip_id 
-  	where u.mobile = #{mobile} ORDER BY s.begin_time DESC LIMIT 0,60; 
+  	where u.mobile = #{mobile} ORDER BY s.begin_time DESC; 
   </select>
   <!-- 查询用户的轨迹点数据 -->
   <select id="getMoveListForUserMobileAndTime" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">

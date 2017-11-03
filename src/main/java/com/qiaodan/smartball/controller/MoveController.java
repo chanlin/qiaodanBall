@@ -52,10 +52,12 @@ public class MoveController {
 		List<MoveData> moveDatas = new ArrayList<MoveData>();
 		for (s_moveWithBLOBs moveWithBLOBs : moves) {
 			MoveData moveData = new MoveData();
-			moveData.setCreateTime(moveWithBLOBs.getCreateTime());
+			moveData.setBeginTime(moveWithBLOBs.getBeginTime());
+			moveData.setEndTime(moveWithBLOBs.getEndTime());
 			moveData.setVerJumpCount(moveWithBLOBs.getVerJumpCount());
 			moveData.setVerJumpMaxHigh(moveWithBLOBs.getVerJumpMaxHigh());
 			moveData.setVerJumpAvgHigh(moveWithBLOBs.getVerJumpAvgHigh());
+			moveData.setTotalStep(moveWithBLOBs.getTotalStep());
 			String jumpStr = moveWithBLOBs.getVerJumpPoint();
 			String trailStr = moveWithBLOBs.getTrail();
 			List<Point> xy = new ArrayList<Point>();
