@@ -120,13 +120,14 @@ public class MediaController {
 		return modelAndView;
 	}
 	@RequestMapping("/getMax.do")
-	public ModelAndView  getMax(@RequestParam String mobile){
+	public ModelAndView  getMax(@RequestParam String mobile,@RequestParam String time){
 		
 		//String mobile = req.getParameter("mobile");
 		List<sys_media> medias = new ArrayList<sys_media>(); 
 		List<s_moveWithBLOBs> moves = new ArrayList<s_moveWithBLOBs>();
 		if(mobile != null && !"".equals(mobile)){
-			moves = moveService.getMoveListForUserMobile(mobile);
+			//moves = moveService.getMoveListForUserMobile(mobile);
+			moves = moveService.getMoveListForUserMobile_Time(mobile,time);
 		}else{
 			logger.warn("输入的手机号为空！");
 		}
@@ -178,12 +179,18 @@ public class MediaController {
 			}
 		}
 		sys_media perfMedia = mediaService.getMediaByTime(mobile,perfDate);
-		perfMedia.setName("整场比赛最高分");
+		if(perfMedia != null){
+			perfMedia.setName("整场比赛最高分");
+		}
 		sys_media runMedia = mediaService.getMediaByTime(mobile,runDate);
 		sys_media breakMedia = mediaService.getMediaByTime(mobile, breakDate);
-		breakMedia.setName("突破最高分");
+		if(breakMedia != null){
+			breakMedia.setName("突破最高分");
+		}
 		sys_media bounceMedia = mediaService.getMediaByTime(mobile, bounceDate);
-		bounceMedia.setName("弹跳最高分");
+		if(bounceMedia != null){
+			bounceMedia.setName("弹跳最高分");
+		}
 		
 		medias.add(perfMedia);
 		medias.add(breakMedia);

@@ -28,5 +28,9 @@ public class MoveServiceImpl implements MoveServiceI{
 	public List<s_moveWithBLOBs> getMoveListForUserMobileAndTime(String mobile, String timeLike) {
 		return moveMapper.getMoveListForUserMobileAndTime(mobile,timeLike);
 	}
+	public List<s_moveWithBLOBs> getMoveListForUserMobile_Time(String mobile, String time) {
+		// TODO Auto-generated method stub
+		return moveMapper.getMoveListForUserMobile_Time(mobile,time);
+	}
 
 }

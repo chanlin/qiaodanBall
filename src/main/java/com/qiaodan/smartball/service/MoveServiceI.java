@@ -9,4 +9,6 @@ public interface MoveServiceI {
 
 	public List<s_moveWithBLOBs> getMoveListForUserMobileAndTime(String mobile,String timeLike);
 
+	public List<s_moveWithBLOBs> getMoveListForUserMobile_Time(String mobile, String time);
+
 }

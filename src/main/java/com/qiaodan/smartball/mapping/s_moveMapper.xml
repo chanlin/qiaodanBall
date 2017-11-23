@@ -644,4 +644,13 @@
   	where u.mobile = #{mobile} and s.begin_time like concat(concat('%',#{timeLike}),'%')
  ORDER BY s.begin_time DESC LIMIT 0,60; 
   </select>
+  
+  <select id="getMoveListForUserMobile_Time" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  	select 
+  	s.*
+  	from s_move s INNER JOIN u_vip u on u.id = s.vip_id 
+  	where u.mobile = #{mobile} and s.begin_time >= #{time}
+ ORDER BY s.begin_time; 
+  </select>
+  
 </mapper>

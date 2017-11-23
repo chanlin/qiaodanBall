@@ -25,4 +25,7 @@ public interface s_moveMapper {
 	List<s_moveWithBLOBs> getMoveForUserMobile(String mobile);
 
 	List<s_moveWithBLOBs> getMoveListForUserMobileAndTime(@Param("mobile")String mobile,@Param("timeLike")String timeLike);
+
+	List<s_moveWithBLOBs> getMoveListForUserMobile_Time(@Param("mobile")String mobile,@Param("time")String time);
+
 }

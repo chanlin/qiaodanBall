@@ -163,10 +163,11 @@ function download(id){
       
       <a href="http://smartball.qiaodan.com:9090/qiaodan/upload/${m.folder}/${m.path}">点击下载</a>
        -->
+       <c:if test="${m !=null}">
        <h2>${m.name}</h2>
 		<a style="cursor:pointer" href="http://smartball.qiaodan.com:9090/qiaodan/upload/${m.folder}/${m.path}" download="图片">
 　　			<img src="http://smartball.qiaodan.com:9090/qiaodan/upload/${m.folder}/${m.path}" alt="图片">
-		</a>
+		</a></c:if>
        <c:if test="${status.index%4 == 0}">
       
       </c:if>

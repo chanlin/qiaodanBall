@@ -25,8 +25,8 @@ center {
 	<center>
 		<form action="" method="get" onsubmit="return false">
 			手机号：<input id="mobile" type="text" />
-			<!-- 时&nbsp;&nbsp;间：<input id="time" type="date"/>
-			</p> -->
+			 时&nbsp;&nbsp;间：<input id="time" type="date"/>
+			</p> 
 			<input type="button" value="查询" onclick="getFiles();">
 			
 		</form>
@@ -40,7 +40,7 @@ center {
 		
 		var hostname = window.location.host;//获取域名端口
 		var mobile = document.getElementById("mobile").value;
-		//var time = document.getElementById("time").value;
+		var time = document.getElementById("time").value;
 		//alert(time);
 		if (mobile == null || mobile == undefined || mobile == '') {
 			alert("手机号不能为空！");
@@ -51,17 +51,18 @@ center {
 			        return false; 
 			    } else{
 			    	//判断时间
-			    	// if(time == null || time == undefined || time == ''){
-			    	//	var myDate = new Date();
-			    	//	var year = myDate.getYear();
-			    	//	var month = myDate.getMonth();       //获取当前月份(0-11,0代表1月)
-			    	//	var date = myDate.getDate();        //获取当前日(1-31)
-			    	//	time = myDate.toLocaleDateString();     //获取当前日期;
-			    	//	alert(time);
-			    	//} 
+			    	 if(time == null || time == undefined || time == ''){
+			    		var myDate = new Date();
+			    		var year = myDate.getYear();
+			    		var month = myDate.getMonth()+1;       //获取当前月份(0-11,0代表1月)
+			    		var date = myDate.getDate();        //获取当前日(1-31)
+			    		//time = myDate.toLocaleDateString();     //获取当前日期;
+			    		time = "2017-"+month+"-"+date;
+			    		//	alert(time);
+			    	} 
 			//document.forms[0].action = "mediaController/getMedias.do?mobile=" + mobile;
 			//document.forms[0].submit();
-			window.open("http://"+hostname+"/PullBallData/mediaController/getMax.do?mobile="+mobile);
+			window.open("http://"+hostname+"/PullBallData/mediaController/getMax.do?mobile="+mobile+"&time="+time);
 			    }
 		}
 	}

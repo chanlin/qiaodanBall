@@ -190,4 +190,13 @@
 		and s.img = m.id LIMIT 0,1;
   
   </select>
+  <select id="getMoveListForUserMobile_Time" resultMap="BaseResultMap">
+  <!-- select * from sys_media m where m.create_time >= '2017-10-28 10:30:13' LIMIT 0,1; -->
+  	select m.* from sys_media m,u_vip u,s_train_save s where 
+ 		u.mobile = #{mobile} and u.id = s.vip_id 
+		and m.create_time >= #{beginTime,jdbcType=TIMESTAMP}
+		and s.img = m.id LIMIT 0,1;
+  
+  </select>
+  
 </mapper>
