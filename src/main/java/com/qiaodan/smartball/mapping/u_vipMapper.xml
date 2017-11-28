@@ -24,6 +24,7 @@
     <result column="qr" property="qr" jdbcType="VARCHAR" />
     <result column="stat" property="stat" jdbcType="VARCHAR" />
   </resultMap>
+  
   <sql id="Base_Column_List" >
     id, create_time, username, password, open_id, type, name, nick, img, gender, age, 
     birthday, mobile, email, qq, position, weight, height, footer, qr, stat
@@ -275,6 +276,35 @@
       footer = #{footer,jdbcType=VARCHAR},
       qr = #{qr,jdbcType=VARCHAR},
       stat = #{stat,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR} 
   </update>
+  
+  <resultMap id="userDataMap" type="com.qiaodan.smartball.model.UserData">
+  	<result column="month" property="month" jdbcType="TIMESTAMP" />
+    <result column="count" property="count" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="getUserData" resultMap="userDataMap">
+    select MONTH(u.create_time) as month ,COUNT(u.id) as count  
+    	from u_vip u group by MONTH(u.create_time);
+	
+  </select>
+  <select id="getUserDataForTime" resultMap="userDataMap">
+    select MONTH(u.create_time) as month ,COUNT(u.id) as count  
+    	from u_vip u where u.create_time BETWEEN #{beginTime,jdbcType=DATE} 
+    	and #{endTime,jdbcType=DATE} group by MONTH(u.create_time);
+	
+  </select>
+  
+  
+  <select id="selectTableOfActiveUser" resultMap="userDataMap">
+    select MONTH(u.create_time) as "month" ,COUNT(u.id) as "count"  from u_vip u 
+    	where u.id  in (select s.vip_id from s_move s group by s.vip_id)
+  		group by MONTH(u.create_time);
+  </select>
+  <select id="getUserAges" resultMap="userDataMap">
+    select MONTH(u.create_time) as "month" ,COUNT(u.id) as "count"  from u_vip u 
+    	where u.id  in (select s.vip_id from s_move s group by s.vip_id)
+  		group by MONTH(u.create_time);
+  </select>
+  
 </mapper>
