@@ -8,18 +8,18 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/echarts.min.js"></script>
 </head>
-<body>
+<body onload="getFiles();">
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    开始时间：<input id="begin_time" type="date"/>结束时间：<input id="end_time" type="date"/>
-    <input type="button" value="查询" onclick="getFiles();">
+  <!--   开始时间：<input id="begin_time" type="date"/>结束时间：<input id="end_time" type="date"/>
+    <input type="button" value="查询" onclick="getFiles();"> -->
     <div id="main" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
     function getFiles() {
     	var hostname = window.location.host;//获取域名端口
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-    	var begin = document.getElementById('begin_time').value;
-    	var end = document.getElementById('end_time').value;
+    	/* var begin = document.getElementById('begin_time').value;
+    	var end = document.getElementById('end_time').value; */
         myChart.showLoading();
         var url = "http://"+hostname+"/PullBallData/userController/selectTableOfUser.do"
         /* $.post(url,
@@ -63,15 +63,15 @@
         			   	            },
         			   	            tooltip: {},
         			   	            legend: {
-        			   	                data:['销量']
+        			   	                data:['用户']
         			   	            },
         			   	            xAxis: {
         			   	                data: legs
         			   	            },
         			   	            yAxis: {},
         			   	            series: [{
-        			   	                name: '销量',
-        			   	                type: 'bar',
+        			   	                name: '用户',
+        			   	                type: 'line',
         			   	                data: sers
         			   	            }]
         			   	        };

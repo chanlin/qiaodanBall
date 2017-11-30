@@ -3,8 +3,11 @@ package com.qiaodan.smartball.test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
@@ -12,12 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.alibaba.fastjson.JSON;
+import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.s_moveWithBLOBs;
 import com.qiaodan.smartball.model.sys_media;
 import com.qiaodan.smartball.pullUtils.PullHex;
 import com.qiaodan.smartball.pullUtils.Utils;
 import com.qiaodan.smartball.service.MediaServiceI;
 import com.qiaodan.smartball.service.MoveServiceI;
+import com.qiaodan.smartball.service.UserServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml", "classpath:spring-mybatis.xml" })
@@ -26,7 +31,7 @@ public class Test {
 	
 	private MoveServiceI moveService;
 	private MediaServiceI mediaService;
-		
+	private UserServiceI userService;
 		
 		
 		
@@ -46,6 +51,15 @@ public class Test {
 		@Autowired
 		public void setMediaService(MediaServiceI mediaService) {
 			this.mediaService = mediaService;
+		}
+		
+		public UserServiceI getUserService() {
+			return userService;
+		}
+
+		@Autowired
+		public void setUserService(UserServiceI userService) {
+			this.userService = userService;
 		}
 		/*@org.junit.Test
 		public void login() {
@@ -137,5 +151,18 @@ public class Test {
 				}
 			}
 			System.err.println("---------------getMediaListByMobile--end--------------");
+		}
+		
+		@org.junit.Test
+		public void getUserAges(){
+			List<UserAges> map = new ArrayList<UserAges>();
+			/*if(beginTime != null && !"".equals(beginTime)
+					&& endTime != null && !"".equals(endTime)){
+				userDatas = userService.getUserDataForTime(beginTime, endTime);
+			}else{
+				logger.warn("传入的参数为空哦！");
+			}*/
+ 			map = userService.getUserAges(true);
+			logger.info(map);
 		}
 }

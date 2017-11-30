@@ -27,11 +27,11 @@
 		$("#u_1").attr("href","http://"+hostname+"/PullBallData/chartUser.jsp"); 
 		$("#u_2").attr("href","http://"+hostname+"/PullBallData/chartActiveUser.jsp"); 
 		$("#u_3").attr("href","http://"+hostname+"/PullBallData/"); 
-		$("#u_4").attr("href","http://"+hostname+"/PullBallData/"); 
-		$("#u_5").attr("href","http://"+hostname+"/PullBallData/"); 
+		$("#u_4").attr("href","http://"+hostname+"/PullBallData/chartUserAges.jsp"); 
+		$("#u_5").attr("href","http://"+hostname+"/PullBallData/chartActiveUserAges.jsp"); 
 		$("#u_6").attr("href","http://"+hostname+"/PullBallData/"); 
-		$("#u_7").attr("href","http://"+hostname+"/PullBallData/"); 
-		$("#u_8").attr("href","http://"+hostname+"/PullBallData/"); 
+		$("#u_7").attr("href","http://"+hostname+"/PullBallData/chartUserPosition.jsp"); 
+		$("#u_8").attr("href","http://"+hostname+"/PullBallData/");// + "chartActiveUserPosition.jsp"); 
 		$("#u_9").attr("href","http://"+hostname+"/PullBallData/"); 
 			
 	}	

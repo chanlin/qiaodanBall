@@ -71,7 +71,7 @@
         			   	            yAxis: {},
         			   	            series: [{
         			   	                name: '用户',
-        			   	                type: 'bar',
+        			   	                type: 'line',
         			   	                data: sers
         			   	            }]
         			   	        };

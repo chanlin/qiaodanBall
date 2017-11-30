@@ -1,11 +1,14 @@
 package com.qiaodan.smartball.service;
 
+import static org.hamcrest.CoreMatchers.isA;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qiaodan.smartball.dao.u_vipMapper;
+import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.UserData;
 
 @Service("userService")
@@ -37,9 +40,14 @@ public class UserServiceImpl implements UserServiceI {
 		return vipMapper.selectTableOfActiveUser();
 	}
 
-	public List<UserData> getUserAges() {
+	public List<UserAges> getUserAges(boolean isActive) {
 		// TODO Auto-generated method stub
-		return vipMapper.getUserAges();
+		return vipMapper.getUserAges(isActive);
+	}
+
+	public List<UserAges> getUserPosition(boolean isActive) {
+		// TODO Auto-generated method stub
+		return vipMapper.getUserPosition(isActive);
 	}
 
 }

@@ -21,7 +21,7 @@
     /* 	var begin = document.getElementById('begin_time').value;
     	var end = document.getElementById('end_time').value; */
         myChart.showLoading();
-        var url = "http://"+hostname+"/PullBallData/userController/getUserAges.do"
+        var url = "http://"+hostname+"/PullBallData/userController/getUserPosition.do"
         /* $.post(url,
         		  {
         			"beginTime":begin,

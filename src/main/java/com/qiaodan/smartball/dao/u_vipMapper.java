@@ -1,9 +1,11 @@
 package com.qiaodan.smartball.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.UserData;
 import com.qiaodan.smartball.model.u_vip;
 
@@ -25,5 +27,7 @@ public interface u_vipMapper {
 
 	List<UserData> selectTableOfActiveUser();
 
-	List<UserData> getUserAges();
+	List<UserAges> getUserAges(@Param("isActive")boolean isActive);
+
+	List<UserAges> getUserPosition(@Param("isActive")boolean isActive);
 }
