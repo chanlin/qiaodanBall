@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.UserData;
+import com.qiaodan.smartball.model.UserMoveData;
 import com.qiaodan.smartball.model.u_vip;
 
 public interface u_vipMapper {
@@ -30,4 +31,6 @@ public interface u_vipMapper {
 	List<UserAges> getUserAges(@Param("isActive")boolean isActive);
 
 	List<UserAges> getUserPosition(@Param("isActive")boolean isActive);
+
+	List<UserMoveData> getUserMoveData(@Param("beginTime")String beginTime, @Param("endTime")String endTime);
 }

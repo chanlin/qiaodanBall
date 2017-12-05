@@ -9,15 +9,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.alibaba.fastjson.JSON;
+import com.qiaodan.smartball.controller.UserController;
 import com.qiaodan.smartball.model.UserAges;
+import com.qiaodan.smartball.model.UserMoveData;
 import com.qiaodan.smartball.model.s_moveWithBLOBs;
 import com.qiaodan.smartball.model.sys_media;
+import com.qiaodan.smartball.model.u_vip;
 import com.qiaodan.smartball.pullUtils.PullHex;
 import com.qiaodan.smartball.pullUtils.Utils;
 import com.qiaodan.smartball.service.MediaServiceI;
@@ -44,7 +50,6 @@ public class Test {
 		}
 		
 		
-
 		public MediaServiceI getMediaService() {
 			return mediaService;
 		}
@@ -164,5 +169,14 @@ public class Test {
 			}*/
  			map = userService.getUserAges(true);
 			logger.info(map);
+		}
+		
+		@org.junit.Test
+		public void getUserDataMovesByTime(){
+			String beginTime = "2017/10/10";
+			String endTime = "2017/11/10";
+			List<UserMoveData> userList = userService.getUserMoveData(beginTime, endTime);
+			logger.info(userList.toString());
+			
 		}
 }

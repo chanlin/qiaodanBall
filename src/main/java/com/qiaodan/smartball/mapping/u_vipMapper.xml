@@ -341,7 +341,31 @@
 			WHEN position = 'PF' then '大前锋'
 			WHEN position = 'C' then '中锋'
 			ELSE NULL
-			end as ps,id from u_vip where position is not NULL) u 
+			end as ps,id from u_vip where position is not NULL
+			<if test="isActive == true">
+				and u.id  in (select s.vip_id from s_move s group by s.vip_id)
+			</if>
+			) u 
 		group by ps;
+	</select>
+	<!-- 根据时间查询用户的 运动数据 -->
+	<resultMap id="UserMoveData" type="com.qiaodan.smartball.model.UserMoveData">
+		<!-- <result column="u" property="u" javaType="com.qiaodan.smartball.model.u_vip" />
+		<result column="m" property="m" javaType="com.qiaodan.smartball.model.s_move" /> -->
+		
+		<collection property="u" ofType="com.qiaodan.smartball.model.u_vip">
+			<result column="BaseResultMap"/>
+		</collection>
+		<collection property="m" ofType="com.qiaodan.smartball.model.s_move">
+			<result column="BaseResultMap"/>
+      	</collection>
+      	
+	</resultMap>
+	<select id="getUserMoveData" resultMap="UserMoveData"
+		parameterType="java.lang.String">
+		select u.*,s.*
+		from u_vip u left join s_move s on u.id = s.vip_id
+		where s.begin_time &gt; #{beginTime,jdbcType=DATE} and 
+		s.begin_time &lt; #{endTime,jdbcType=DATE};
 	</select>
 </mapper>

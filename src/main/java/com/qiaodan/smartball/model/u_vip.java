@@ -1,6 +1,7 @@
 package com.qiaodan.smartball.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class u_vip {
     private String id;
@@ -44,12 +45,28 @@ public class u_vip {
     private String qr;
 
     private String stat;
-
+    
+    //add get user all move data
+    private List<s_move> userMoves;
     public String getId() {
         return id;
     }
+    
+    
 
-    public void setId(String id) {
+    public List<s_move> getUserMoves() {
+		return userMoves;
+	}
+
+
+
+	public void setUserMoves(List<s_move> userMoves) {
+		this.userMoves = userMoves;
+	}
+
+
+
+	public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
 

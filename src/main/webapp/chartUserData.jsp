@@ -10,6 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
 </head>
 <style>
 
@@ -20,7 +23,8 @@
         width:50px;
     }
 </style>
-<body>
+<body onload="getFile();">
+	<h1 id="h"></h1>
 <table border="1" style="border-collapse:collapse">
     <tr>
         <td>用户名</td>
@@ -39,8 +43,8 @@
         <td>横向距离</td>
         <td>纵跳次数</td>
     </tr>
-    <c:forEach itmes="${moveDates}" var="m">
-        <tr>
+    <%-- <c:forEach itmes="${moveDates}" var="m"> --%>
+       <%--  <tr>
             <td>${m.userNmae}</td>
             <td>${m.Nickname}</td>
             <td>${m.gender}</td>
@@ -56,8 +60,26 @@
             <td>${m.long}</td>
             <td>${m.cross}</td>
             <td>${m.degree}</td>
-        </tr>
-    </c:forEach>
+        </tr> --%>
+   <%--  </c:forEach> --%>
 </table>
 </body>
+<script type="text/javascript">
+function getFile() {
+	var hostname = window.location.host;//获取域名端口
+	 	var begin = "2017/10/10";//document.getElementById('begin_time').value;
+		var end = "2017/11/10";//document.getElementById('end_time').value;
+	var url = "http://" + hostname
+			+ "/PullBallData/userController/getUserMoveData.do?beginTime="
+			+begin+"&endTime="+end
+	$.get(url,
+	function(data, status) {
+		if (status == "success") {
+			alert(data);
+		} else {
+			alert("查询数据失败！");
+		}
+	});
+}
+</script>
 </html>

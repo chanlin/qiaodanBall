@@ -21,7 +21,7 @@
     /* 	var begin = document.getElementById('begin_time').value;
     	var end = document.getElementById('end_time').value; */
         myChart.showLoading();
-        var url = "http://"+hostname+"/PullBallData/userController/getUserAges.do"
+        var url = "http://"+hostname+"/PullBallData/userController/getUserPosition.do?isActive=1"
         /* $.post(url,
         		  {
         			"beginTime":begin,
@@ -59,11 +59,11 @@
         			   		// 指定图表的配置项和数据
         			   	        var option = {
         			   	            title: {
-        			   	                text: '注册用户年龄段'
+        			   	                text: '活跃用户球场位置'
         			   	            },
         			   	            tooltip: {},
         			   	            legend: {
-        			   	                data:['用户']
+        			   	                data:['百分比']
         			   	            },
         			   	            xAxis: {
         			   	                data: legs

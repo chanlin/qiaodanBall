@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.qiaodan.smartball.dao.u_vipMapper;
 import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.UserData;
+import com.qiaodan.smartball.model.UserMoveData;
+import com.qiaodan.smartball.model.u_vip;
 
 @Service("userService")
 public class UserServiceImpl implements UserServiceI {
@@ -48,6 +50,11 @@ public class UserServiceImpl implements UserServiceI {
 	public List<UserAges> getUserPosition(boolean isActive) {
 		// TODO Auto-generated method stub
 		return vipMapper.getUserPosition(isActive);
+	}
+
+	public List<UserMoveData> getUserMoveData(String beginTime, String endTime) {
+		// TODO Auto-generated method stub
+		return vipMapper.getUserMoveData(beginTime, endTime);
 	}
 
 }

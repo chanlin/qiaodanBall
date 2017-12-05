@@ -27,14 +27,14 @@
             <th>注册数量</th>
             <th>活跃数量</th>
         </tr>
-        <c:forEach itmes="${moveDatas}" var="move" varStatus="moveIndex">
+        <%-- <c:forEach itmes="${moveDatas}" var="move" varStatus="moveIndex"> --%>
             <tr>
                 <td>${move.provice}</td>
                 <td>${move.number}</td>
                 <td>${move.user}</td>
             </tr>
 
-        </c:forEach>
+        <%-- </c:forEach> --%>
     </table>
 </body>
 </html>

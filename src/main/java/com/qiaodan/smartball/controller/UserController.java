@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qiaodan.smartball.model.UserAges;
 import com.qiaodan.smartball.model.UserData;
+import com.qiaodan.smartball.model.UserMoveData;
+import com.qiaodan.smartball.model.u_vip;
 import com.qiaodan.smartball.service.UserServiceI;
 
 @Controller
@@ -153,9 +155,14 @@ public class UserController {
 	@RequestMapping(value="/getUserPosition.do",method=RequestMethod.GET)
 	@ResponseBody
 	public List<UserAges> getUserPosition(HttpServletRequest req, HttpServletResponse rep){
+		String isActive = req.getParameter("isActive");
 		List<UserAges> userAges= new ArrayList<UserAges>();
+		if(isActive == null || "".equals(isActive)){
+			userAges = userService.getUserPosition(true);
+		}else{
+			userAges = userService.getUserPosition(false);
+		}
 		
-		userAges = userService.getUserPosition(true);
 		int sum = 0;
 		List<UserAges> newUserAges = new ArrayList<UserAges>();
 		for(UserAges user : userAges){
@@ -174,6 +181,35 @@ public class UserController {
 			newUserAges.get(i).setUserCount(df.format(e));
 		}
 		return newUserAges;
+		
+	}
+	
+	
+	/**
+	 * 根据时间段 查询运动的数据
+	* @Title: getUserMoveData 
+	* @Description: TODO 
+	* @param req
+	* @param rep
+	* @return     
+	* @return List<u_vip>     
+	* @throws
+	 */
+	@RequestMapping(value="/getUserMoveData.do",method=RequestMethod.GET)
+	@ResponseBody
+	public List<UserMoveData> getUserMoveData(HttpServletRequest req, HttpServletResponse rep){
+		String beginTime = req.getParameter("beginTime");
+		String endTime = req.getParameter("endTime");
+		List<UserMoveData> userDatas = new ArrayList<UserMoveData>();
+		if(beginTime != null && !"".equals(beginTime)
+				&& endTime != null && !"".equals(endTime)){
+			userDatas = userService.getUserMoveData(beginTime, endTime);
+		}else{
+			logger.warn("传入的参数为空哦！");
+		}
+		logger.info(userDatas);
+		
+		return userDatas;
 		
 	}
 }
